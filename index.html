@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>cracksense</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #121212;
+      font-family: Tahoma, sans-serif;
+      color: #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .intro-logo {
+      font-size: 3em;
+      font-weight: bold;
+      color: #b400ff;
+      text-shadow: 0 0 5px #b400ff, 0 0 10px #b400ff, 0 0 15px #b400ff;
+      opacity: 0;
+      animation: glowIntro 2s ease-in-out forwards;
+    }
+
+    @keyframes glowIntro {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+        text-shadow: none;
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+        text-shadow: 0 0 10px #b400ff, 0 0 20px #b400ff;
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        text-shadow: 0 0 5px #b400ff, 0 0 10px #b400ff;
+      }
+    }
+
+    .continue-button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #b400ff;
+      border: none;
+      color: #fff;
+      font-size: 1em;
+      border-radius: 6px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .continue-button.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .content {
+      display: none;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .panel {
+      background-color: #1a1a1a;
+      border: 1px solid #000;
+      padding: 20px;
+      width: 600px;
+      max-width: 100%;
+      margin-top: 20px;
+    }
+
+    .panel-title {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #333;
+      color: #fff;
+    }
+
+    .tutorial-step h3 {
+      color: #b400ff;
+      margin-bottom: 5px;
+    }
+
+    .tutorial-step p,
+    .note {
+      font-size: 0.95em;
+      color: #aaa;
+      margin: 10px 0;
+    }
+
+    .note {
+      font-size: 0.85em;
+      color: #777;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: #aaa;
+    }
+
+    .go-index-button {
+      margin: 15px 0;
+      padding: 8px 16px;
+      background-color: #333;
+      border: 1px solid #b400ff;
+      color: #b400ff;
+      font-size: 0.95em;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .go-index-button:hover {
+      background-color: #b400ff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro-logo">
+    crack<span style="color: #fff;">sense</span>
+  </div>
+
+  <button class="continue-button" id="continueBtn">Continue</button>
+
+  <div class="content" id="mainContent">
+    <div class="panel">
+      <div class="panel-title">Welcome to cracksense</div>
+
+      <!-- New Go to Home Button -->
+      <button onclick="location.href='cracksense.html'" class="go-index-button">Go to Home</button>
+
+      <div class="tutorial-step">
+        <h3>What is cracksense?</h3>
+        <p>Cracksense helps you find tools, learning resources, and game repack websites — neatly organized with trusted sources marked.</p>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>How to navigate</h3>
+        <p>Use the sidebar icons to switch between categories like games, tools, and learning. Click on a site's name to visit it directly.</p>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Trusted sources</h3>
+        <p>Sites with a <span style="color:#b400ff;">★</span> are hand-picked for reliability. Always double-check and use antivirus protection.</p>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>What you'll need</h3>
+        <ul>
+          <li>A strong antivirus (e.g. Windows Defender, Malwarebytes)</li>
+          <li>7-Zip or WinRAR for extracting archives</li>
+          <li>uBlock Origin or similar ad-blocker</li>
+          <li>Optional: Virtual Machine for testing suspicious software</li>
+        </ul>
+      </div>
+
+      <div class="note">
+        Disclaimer: This site does not host or distribute any content. Links are for educational/reference purposes only.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Show the "Continue" button after 3 seconds
+    setTimeout(() => {
+      document.getElementById('continueBtn').classList.add('show');
+    }, 3000);
+
+    // Fade in the content when "Continue" is clicked
+    document.getElementById('continueBtn').addEventListener('click', () => {
+      document.querySelector('.intro-logo').style.display = 'none';
+      document.getElementById('continueBtn').style.display = 'none';
+      const content = document.getElementById('mainContent');
+      content.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
